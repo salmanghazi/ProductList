@@ -1,33 +1,13 @@
-import React, { useState } from 'react';
+import { Action } from '../actions';
 
-
-interface FormElements extends HTMLFormControlsCollection {
-  productInput: HTMLInputElement
-}
-interface UsernameFormElement extends HTMLFormElement {
-  readonly elements: FormElements
-}
-
-interface Product {
+export interface Product {
   name: string;
   description: string;
   price: number;
   inventoryDate: string;
 }
 
-interface AllProducts {
-  allproducts: Product[];
-}
-
-const Products = (allproducts: AllProducts) => {
-  const [item, setItem] = useState('');
-  const allProducts = [{
-    name: 'Honda',
-    description: "The Honda Civic is a series of automobiles manufactured by Honda since 1972. Since 2000, the Civic has been categorized as a compact car, while previously it occupies the subcompact class. Currently, the Civic is positioned between the Honda City and Honda Accord in Honda's car line-up.",
-    price: 50000,
-    inventoryDate: '20-12-2020'
-  },
-  {
+export const allProducts: Product[] = [{
     name: 'Suzuki',
     description: "The Suzuki Ciaz is a subcompact sedan produced by Suzuki since 2014. It is developed to replace the Suzuki SX4 sedan in several Asian, African and Latin American markets. It went on sale for the first time in India, the largest market for Suzuki in September 2014. It is currently the larger sedan of two sedans currently produced by Suzuki, the other being the Dzire.",
     price: 60000,
@@ -69,31 +49,21 @@ const Products = (allproducts: AllProducts) => {
     price: 510000,
     inventoryDate: '20-12-2020'
   },
-  ];
+];
 
-  const addProduct = (e:React.FormEvent<UsernameFormElement>) => {
-    e.preventDefault();
-    console.log(e.currentTarget.elements.productInput);
-    const obj = {name: e.currentTarget.elements.productInput.value, description: '', price: 1, inventoryDate: '20-12-2020'}
-    allProducts.push(obj);
+const productsReducer = (state: Product[] = allProducts, action: Action): Product[] => {
+  switch (action.type) {
+    case 'ADD_PRODUCT':
+      state.push({
+        name: action.payload.name,
+        description: action.payload.description,
+        price: action.payload.price,
+        inventoryDate: action.payload.inventoryDate,
+      });
+      return state;
+    case 'ADD_PRODUCT_FAILURE':
+    default:
+      return state;
   }
-  
-  return (
-    <div className="container">
-      <ul>
-        {
-          allProducts.map((item, idx) => <li key={idx}>{item.name}</li>)
-        }
-      </ul>
-      <form onSubmit={addProduct}>
-      <label htmlFor="productInput">
-        Enter Product Name:
-        <input className="input" type="text" id="productInput" value={item} onChange={e => setItem(e.target.value)} />
-      </label>
-      <button type="submit" className="btn">Add a product</button>
-      </form>
-    </div>
-  );
 }
-
-export default Products;
+export default productsReducer;

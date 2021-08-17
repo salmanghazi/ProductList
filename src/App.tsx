@@ -1,11 +1,9 @@
-import React from 'react';
-import './App.css';
-import Products from './Products/products';
-import { allProducts } from './allproducts';
+import Products from './components/Products/products';
+
 function App() {
   return (
-    <div className="App">
-      <Products allproducts={allProducts}/>
+    <div>
+      <Products/>
     </div>
   );
 }
