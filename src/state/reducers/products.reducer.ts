@@ -9,45 +9,45 @@ export interface Product {
 
 export const allProducts: Product[] = [{
     name: 'Suzuki',
-    description: "The Suzuki Ciaz is a subcompact sedan produced by Suzuki since 2014. It is developed to replace the Suzuki SX4 sedan in several Asian, African and Latin American markets. It went on sale for the first time in India, the largest market for Suzuki in September 2014. It is currently the larger sedan of two sedans currently produced by Suzuki, the other being the Dzire.",
+    description: "The Suzuki Ciaz is a subcompact sedan produced by Suzuki since 2014.",
     price: 60000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
   {
     name: 'Ducati',
-    description: "Ducati Motor Holding S.p.A. is the motorcycle-manufacturing division of Italian company Ducati, headquartered in Bologna, Italy. The company is owned by Italian automotive manufacturer Lamborghini, through its German parent company Audi, itself owned by the Volkswagen Group.",
+    description: "Ducati Motor Holding S.p.A. is the motorcycle-manufacturing division.",
     price: 20000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
   {
-    name: 'Chevrolet.',
-    description: "Chevy trucks are built with capability in mind. Find 4x4, work trucks, and light duty trucks with the strength, towing, and payload needed for work & play.",
+    name: 'Chevrolet',
+    description: "Chevy trucks are built with capability in mind.",
     price: 100000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
   {
     name: 'Pheonix',
-    description: "From the classic bicycles in the early modern China, to the 28'' bicycle and to the present-day FNIX high-end sports bikes, the China Phoenix urban",
+    description: "From the classic bicycles in the early modern China.",
     price: 5000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
   {
     name: 'FAW',
-    description: "FAW Group Corporation is a Chinese state-owned automotive manufacturing company headquartered in Changchun, Jilin, China. Its principal products are automobiles, buses, light, medium and heavy-duty trucks, and auto parts.",
+    description: "FAW Group Corporation is a Chinese state-owned automotive manufacturing company.",
     price: 9000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
   {
     name: 'FORD',
-    description: "Built Ford Tough. It's synonymous with the rugged capability, outstanding performance and dependability of Ford trucks. ",
+    description: "Built Ford Tough. It's synonymous with the rugged capability.",
     price: 500000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
   {
     name: 'FIAT',
-    description: "Whatever business you're thinking about, Fiat Professional trucks are right for you. From load capacity to attention to interiors details, every truck has",
+    description: "Whatever business you're thinking about, Fiat Professional trucks are right for you.",
     price: 510000,
-    inventoryDate: '20-12-2020'
+    inventoryDate: '2020-12-20',
   },
 ];
 
