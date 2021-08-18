@@ -17,6 +17,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import SearchIcon from '@material-ui/icons/Search';
 import { InputBase } from '@material-ui/core';
+import { Product } from '../../state/reducers/products.reducer';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -106,11 +107,58 @@ const Products:React.FC = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
   const [inventoryDate, setInventoryDate] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const classes = useStyles();
   const dispatch = useDispatch();
   const { allProducts } = useTypedSelector((state) => (state));
   
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    
+  }
+
+  const renderProducts = (allProducts:Product[]) => (
+    <Container className={classes.cardGrid} maxWidth="md">
+      <Grid container spacing={4}>
+        {allProducts.filter((item) => {
+          if (searchTerm === ""){
+            return item;
+          }
+          else if(item.name.toLowerCase().includes(searchTerm.toLowerCase())){
+            return item;
+          }
+        }).map((item, card) => (
+          <Grid item key={card} xs={12} sm={6} md={4}>
+            <Card className={classes.card}>
+              <CardMedia
+                className={classes.cardMedia}
+                image="https://source.unsplash.com/random"
+                title="Image title"
+              />
+              <CardContent className={classes.cardContent}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <Button variant="contained" color="primary">
+                  {item.name}
+                  </Button>
+                </Typography>
+                <Typography>
+                  {item.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary">
+                Price: ${item.price}
+                </Button>
+                <Button size="small" color="primary">
+                  Date: {item.inventoryDate}
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  )
 
   const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -156,6 +204,8 @@ const Products:React.FC = () => {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
             />
           </div>
         </Toolbar>
@@ -222,40 +272,7 @@ const Products:React.FC = () => {
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {allProducts.map((item, card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      <Button variant="contained" color="primary">
-                      {item.name}
-                      </Button>
-                    </Typography>
-                    <Typography>
-                      {item.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                     Price: ${item.price}
-                    </Button>
-                    <Button size="small" color="primary">
-                      Date: {item.inventoryDate}
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+        {renderProducts(allProducts)}
       </main>
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
