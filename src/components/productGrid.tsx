@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from './productsStyles';
+import {useStyles} from '../hooks/useStyles';
 import {useTypedSelector} from '../hooks/useTypedSelector';
 
 interface Props {

@@ -6,14 +6,14 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from './productsStyles';
+import {useStyles} from '../hooks/useStyles';
 
 import AddProduct from './appendProduct';
 import {Footer} from './footer';
 import {ProductGrid} from './productGrid';
 
 
-const Products:React.FC = () => { 
+const Products:React.FC = () => {
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = useState('');
   return (
