@@ -1,6 +1,6 @@
 
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from './productsStyles';
+import {useStyles} from '../hooks/useStyles';
 import React from 'react';
 
 export const Footer:React.FC = () => {

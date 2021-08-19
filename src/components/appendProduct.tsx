@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {addProduct} from '../state/action-creators';
 import {useDispatch} from 'react-redux';
-import {useStyles} from './productsStyles';
+import {useStyles} from '../hooks/useStyles';
 
 const AddProduct:React.FC = () => {
   const [name, setName] = useState('');
@@ -36,74 +36,75 @@ const AddProduct:React.FC = () => {
       setInventoryDate('');
     }
   };
-  return(
+  return (
     <div className={classes.heroContent}>
-    <Container maxWidth="sm">
-      <Typography component="h1" variant="h5" align="center" color="textPrimary" gutterBottom>
+      <Container maxWidth="sm">
+        <Typography component="h1" variant="h5" align="center" color="textPrimary" gutterBottom>
         Products List
-      </Typography>
-      <Typography variant="h6" align="center" color="textSecondary" paragraph>
+        </Typography>
+        <Typography variant="h6" align="center" color="textSecondary" paragraph>
         Here you can view the list of products available at store. Products can be added and searched as well.
-      </Typography>
-      <div className={classes.heroButtons}>
-        <Grid container spacing={4} justifyContent="center">
-          <form
-            className={classes.root}
-            noValidate
-            onSubmit={onSubmit}
-            autoComplete="off">
-            <Grid item>
-              <div>
-                <TextField
-                  id="standard-multiline-flexible"
-                  label="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <TextField
-                  id="standard-multiline-flexible"
-                  label="Description"
-                  multiline
-                  maxRows={4}
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </div>
-            </Grid>
-            <Grid item>
-              <div>
-                <TextField
-                  id="standard-multiline-flexible"
-                  label="Price ($):"
-                  value={price}
-                  onChange={(e) => setPrice(+e.target.value)}
-                />
-                <TextField
-                  id="standard-multiline-flexible"
-                  label=" "
-                  type="date"
-                  value={inventoryDate}
-                  onChange={(e) => setInventoryDate(e.target.value)}
-                />
-              </div>
-            </Grid>
-            <Grid item>
-              <Box m={2} pt={1}>
-                <Button
-                  style={{margin: '0 auto', display: 'flex'}}
-                  variant='contained'
-                  color='primary'
-                  size='small'
-                  type='submit'>
+        </Typography>
+        <div className={classes.heroButtons}>
+          <Grid container spacing={4} justifyContent="center">
+            <form
+              className={classes.root}
+              noValidate
+              onSubmit={onSubmit}
+              autoComplete="off">
+              <Grid item>
+                <div>
+                  <TextField
+                    id="standard-multiline-flexible"
+                    label="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  <TextField
+                    id="standard-multiline-flexible"
+                    label="Description"
+                    multiline
+                    maxRows={4}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+              </Grid>
+              <Grid item>
+                <div>
+                  <TextField
+                    id="standard-multiline-flexible"
+                    label="Price ($):"
+                    value={price}
+                    onChange={(e) => setPrice(+e.target.value)}
+                  />
+                  <TextField
+                    id="standard-multiline-flexible"
+                    label=" "
+                    type="date"
+                    value={inventoryDate}
+                    onChange={(e) => setInventoryDate(e.target.value)}
+                  />
+                </div>
+              </Grid>
+              <Grid item>
+                <Box m={2} pt={1}>
+                  <Button
+                    data-testid='salman'
+                    style={{margin: '0 auto', display: 'flex'}}
+                    variant='contained'
+                    color='primary'
+                    size='small'
+                    type='submit'>
                 Add Product
-                </Button>
-              </Box>
-            </Grid>
-          </form>
-        </Grid>
-      </div>
-    </Container>
-  </div>
+                  </Button>
+                </Box>
+              </Grid>
+            </form>
+          </Grid>
+        </div>
+      </Container>
+    </div>
   );
 };
 

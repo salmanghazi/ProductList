@@ -1,4 +1,6 @@
 import Products from './components/products';
+import React from 'react';
+{/* eslint-disable */}
 
 function App() {
   return (
