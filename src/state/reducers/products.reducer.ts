@@ -60,7 +60,7 @@ const productsReducer = (state: Product[] = allProducts, action: Action): Produc
         price: action.payload.price,
         inventoryDate: action.payload.inventoryDate,
       });
-      return state;
+      return [...state];
     case 'ADD_PRODUCT_FAILURE':
     default:
       return state;
