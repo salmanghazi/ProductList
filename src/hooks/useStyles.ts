@@ -1,4 +1,4 @@
-import {alpha, makeStyles} from '@material-ui/core';
+import { alpha, makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   icon: {
