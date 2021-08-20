@@ -7,16 +7,16 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from '../hooks/useStyles';
-import {useTypedSelector} from '../hooks/useTypedSelector';
+import { useStyles } from '../hooks/useStyles';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 interface Props {
   searchTerm: string;
 }
 
-export const ProductGrid:React.FC<Props> = ({searchTerm}) => {
+export const ProductGrid:React.FC<Props> = ({ searchTerm }) => {
   const classes = useStyles();
-  const {allProducts} = useTypedSelector((state) => (state));
+  const { allProducts } = useTypedSelector((state) => (state));
   return (
     <Container className={classes.cardGrid} maxWidth='md'>
       <Grid container spacing={4}>

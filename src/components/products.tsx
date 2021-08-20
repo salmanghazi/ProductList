@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {InputBase} from '@material-ui/core';
+import { InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from '../hooks/useStyles';
+import { useStyles } from '../hooks/useStyles';
 
 import AddProduct from './appendProduct';
-import {Footer} from './footer';
-import {ProductGrid} from './productGrid';
+import { Footer } from './footer';
+import { ProductGrid } from './productGrid';
 
 
 const Products:React.FC = () => {
@@ -35,7 +35,7 @@ const Products:React.FC = () => {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              inputProps={{'aria-label': 'search'}}
+              inputProps={{ 'aria-label': 'search' }}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />

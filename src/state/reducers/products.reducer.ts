@@ -1,4 +1,4 @@
-import {Action} from '../actions';
+import { Action } from '../actions';
 
 export interface Product {
   name: string;
@@ -7,7 +7,7 @@ export interface Product {
   inventoryDate: string;
 }
 
-export const allProducts: Product[] = [{
+export const INITIAL_STATE: Product[] = [{
   name: 'Suzuki',
   description: 'The Suzuki Ciaz is a subcompact sedan produced by Suzuki since 2014.',
   price: 60000,
@@ -51,7 +51,7 @@ export const allProducts: Product[] = [{
 },
 ];
 
-const productsReducer = (state: Product[] = allProducts, action: Action): Product[] => {
+const productsReducer = (state: Product[] = INITIAL_STATE, action: Action): Product[] => {
   switch (action.type) {
     case 'ADD_PRODUCT':
       state.push({

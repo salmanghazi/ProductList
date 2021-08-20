@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {Box, TextField} from '@material-ui/core';
+import React, { useState } from 'react';
+import { Box, TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {addProduct} from '../state/action-creators';
-import {useDispatch} from 'react-redux';
-import {useStyles} from '../hooks/useStyles';
+import { addProduct } from '../state/action-creators';
+import { useDispatch } from 'react-redux';
+import { useStyles } from '../hooks/useStyles';
 
 const AddProduct:React.FC = () => {
   const [name, setName] = useState('');
@@ -20,7 +20,7 @@ const AddProduct:React.FC = () => {
     e.preventDefault();
     const today = new Date();
     const dateInFormat = new Date(inventoryDate);
-    const item = {name, description, price, inventoryDate};
+    const item = { name, description, price, inventoryDate };
     if (name === '' || description === '') {
       alert('Kindly fill all of the fields');
     } else if (price === 0) {
@@ -91,7 +91,7 @@ const AddProduct:React.FC = () => {
                 <Box m={2} pt={1}>
                   <Button
                     data-testid='salman'
-                    style={{margin: '0 auto', display: 'flex'}}
+                    style={{ margin: '0 auto', display: 'flex' }}
                     variant='contained'
                     color='primary'
                     size='small'
